@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Matter · FTC Team 17298</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #07050d;
+            --bg-card: #120b22;
+            --purple-main: #8a2be2;
+            --purple-light: #b161ff;
+            --purple-glow: rgba(138, 43, 226, 0.4);
+            --gold-accent: #f5a623;
+            --text-main: #f0f0f8;
+            --text-muted: #a09cb0;
+            --border-glow: rgba(177, 97, 255, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 4rem;
+            background: rgba(7, 5, 13, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glow);
+            z-index: 1000;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .brand-logo {
+            width: 38px;
+            height: 38px;
+            background: radial-gradient(circle, var(--purple-light), #000);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--purple-main);
+        }
+
+        .brand-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .brand-sub {
+            font-size: 0.75rem;
+            color: var(--gold-accent);
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.8rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--purple-light);
+        }
+
+        .btn-sim {
+            background: linear-gradient(135deg, var(--purple-main), #5c0ebd);
+            color: #fff;
+            padding: 0.6rem 1.4rem;
+            border-radius: 6px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 1px solid var(--purple-light);
+            box-shadow: 0 0 15px var(--purple-glow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-sim:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px var(--purple-light);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            background: radial-gradient(circle at center, #1b0c33 0%, var(--bg-dark) 70%);
+            position: relative;
+        }
+
+        .team-num {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 7rem;
+            font-weight: 900;
+            background: linear-gradient(180deg, #fff 30%, var(--purple-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 40px var(--purple-glow);
+        }
+
+        .team-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 1.5rem;
+        }
+
+        .callout-box {
+            border: 1px solid var(--border-glow);
+            background: rgba(18, 11, 34, 0.6);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .callout-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .sim-section {
+            padding: 6rem 4rem;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-glow);
+            border-bottom: 1px solid var(--border-glow);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .sim-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 680px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--border-glow);
+            box-shadow: 0 0 35px rgba(0,0,0,0.8);
+            background: #000;
+        }
+
+        .sim-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .sim-attribution {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .sim-attribution a {
+            color: var(--purple-light);
+            text-decoration: none;
+        }
+
+        footer {
+            padding: 3rem 4rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .sponsors {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="brand">
+            <div class="brand-logo"></div>
+            <div>
+                <div class="brand-title">DARK MATTER</div>
+                <div class="brand-sub">FTC TEAM 17298</div>
+            </div>
+        </a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#simulator">3D Sim</a>
+            <a href="./web/index.html" class="btn-sim" target="_blank">Launch Fullscreen Sim ↗</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="team-num">17298</div>
+        <div class="team-name">Dark Matter</div>
+        <div class="callout-box">
+            <p>Building competitive FIRST Tech Challenge robots and developing custom browser-based simulation tools in Shirley, Massachusetts.</p>
+        </div>
+        <a href="#simulator" class="btn-sim" style="padding: 0.8rem 2rem; font-size: 0.9rem;">Try 3D Simulator Below ↓</a>
+    </section>
+
+    <section id="simulator" class="sim-section">
+        <div class="section-header">
+            <h2>3D Mecanum Robot Simulator</h2>
+            <p>Write real Java code, compile in-browser, and test drive FTC autonomous & teleop routines.</p>
+        </div>
+
+        <div class="sim-container">
+            <!-- Embeds simulator from /web/index.html -->
+            <iframe src="./web/index.html" class="sim-iframe" title="Impulse 3D Robot Simulator"></iframe>
+        </div>
+
+        <div class="sim-attribution">
+            Powered by the open-source <a href="https://github.com/boltonftc/impulse3dsim" target="_blank">Impulse 3D Simulator</a> created by Bolton Robotics FTC. Licensed under Apache 2.0.
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 FTC Team 17298 Dark Matter · Shirley, MA · Rookie Year 2019</p>
+        <div class="sponsors">
+            <span>Ayer-Shirley Regional Middle School</span> •
+            <span>Ayer-Shirley Educational Fund</span> •
+            <span>Teradyne</span>
+        </div>
+    </footer>
+
+</body>
+</html>
